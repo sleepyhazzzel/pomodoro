@@ -51,7 +51,7 @@ export default defineConfig({
       },
       // json 設定
       manifest: {
-        name: 'Pomodoro',
+        name: 'Pomodoro - Time to focus!',
         short_name: 'Pomodoro',
         // 工具列的顏色
         theme_color: '#009688',
