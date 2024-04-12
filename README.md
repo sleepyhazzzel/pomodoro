@@ -6,7 +6,7 @@
 
 <table style="border-collapse: collapse;">
   <tr>
-    <td style="display: block; vertical-align: top;">
+    <td style="vertical-align: top;">
       <img src="https://github.com/sleepyhazzzel/pomodoro/blob/main/img/timer.gif?raw=true" width="250">
     </td>
     <td>
