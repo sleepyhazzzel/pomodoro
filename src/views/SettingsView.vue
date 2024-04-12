@@ -3,8 +3,8 @@
     <v-row>
       <v-col cols="12">
         <div class="d-flex justify-space-between align-center mb-3">
-          <div style="color: #212121;">讓我置中啦煩誒～</div>
-          <p class="text-h6 text-sm-h5">鈴聲設定</p>
+          <div v-if="!isMobile" style="color: #212121;">讓我置中啦煩誒～</div>
+          <p class="text-h6 text-sm-h4">鈴聲設定</p>
           <div class="mt-2 me-10 d-flex align-center text-button">
             <Toggle v-model="notify" on-label="On" off-label="Off" class="me-1 toggle-teal"></Toggle>
             <span v-if="!isMobile">提醒</span>
@@ -23,7 +23,7 @@
           <tbody>
             <tr v-for="alarm in alarms" :key="alarm.id">
               <td>{{ alarm.name }}</td>
-              <td>
+              <td v-if="!isMobile">
                 <audio :src="alarm.file" controls></audio>
               </td>
               <td>
