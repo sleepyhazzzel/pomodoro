@@ -40,6 +40,7 @@
 </template>
 
 <script setup>
+import { ref, computed } from 'vue'
 import { useDisplay } from 'vuetify'
 import { useSettingsStore } from '@/store/settings'
 import { storeToRefs } from 'pinia'
@@ -50,7 +51,7 @@ const settings = useSettingsStore()
 const { alarms, selectedAlarm, notify } = storeToRefs(settings)
 
 const { mobile } = useDisplay()
-const isMobile = mobile.value
+const isMobile = computed(() => mobile.value)
 </script>
 
 <style src="@vueform/toggle/themes/default.css"></style>
