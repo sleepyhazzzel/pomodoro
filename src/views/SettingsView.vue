@@ -4,11 +4,10 @@
       <v-col cols="12">
         <div class="d-flex justify-space-between align-center mb-3">
           <div style="color: #212121;">讓我置中啦煩誒～</div>
-          <h1>鈴聲設定</h1>
+          <p class="text-h6 text-sm-h5">鈴聲設定</p>
           <div class="mt-2 me-10 d-flex align-center text-button">
-            <Toggle v-model="notify"
-              on-label="On" off-label="Off"
-              class="me-1 toggle-teal"></Toggle>提醒
+            <Toggle v-model="notify" on-label="On" off-label="Off" class="me-1 toggle-teal"></Toggle>
+            <span v-if="!isMobile">提醒</span>
           </div>
         </div>
       </v-col>
@@ -17,7 +16,7 @@
           <thead>
             <tr>
               <th>名稱</th>
-              <th class="ps-5">試聽</th>
+              <th v-if="!isMobile" class="ps-5">試聽</th>
               <th class="ps-5">選擇</th>
             </tr>
           </thead>
@@ -41,6 +40,7 @@
 </template>
 
 <script setup>
+import { useDisplay } from 'vuetify'
 import { useSettingsStore } from '@/store/settings'
 import { storeToRefs } from 'pinia'
 import Toggle from '@vueform/toggle'
@@ -48,11 +48,14 @@ import Toggle from '@vueform/toggle'
 const settings = useSettingsStore()
 // 使用 storeToRefs() 解構 維持響應性
 const { alarms, selectedAlarm, notify } = storeToRefs(settings)
+
+const { mobile } = useDisplay()
+const isMobile = mobile.value
 </script>
 
 <style src="@vueform/toggle/themes/default.css"></style>
 <style>
-.toggle-teal{
+.toggle-teal {
   --toggle-bg-on: #009688;
   --toggle-border-on: #009688;
 }
