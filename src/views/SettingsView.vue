@@ -50,8 +50,8 @@ const settings = useSettingsStore()
 // 使用 storeToRefs() 解構 維持響應性
 const { alarms, selectedAlarm, notify } = storeToRefs(settings)
 
-const { mobile } = useDisplay()
-const isMobile = computed(() => mobile.value)
+const { xs } = useDisplay()
+const isMobile = computed(() => xs.value)
 </script>
 
 <style src="@vueform/toggle/themes/default.css"></style>
